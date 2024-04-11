@@ -1,3 +1,16 @@
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+    --primary: #306A9F;
+    --secondary: #DEB038;
+    --warn: #AC2828;
+    --gray: #EDEBDE;
+    --dark :#1D2633;
+}
