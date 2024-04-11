@@ -7,6 +7,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MemberComponent } from './components/member/member.component';
+import {MatChipsModule} from '@angular/material/chips'; 
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MemberComponent } from './components/member/member.component';
     BrowserModule,
     AppRoutingModule,
     FullCalendarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

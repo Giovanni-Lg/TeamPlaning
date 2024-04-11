@@ -5,12 +5,13 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
 }
 
 :root {
-    --primary: #306A9F;
-    --secondary: #DEB038;
-    --warn: #AC2828;
-    --gray: #EDEBDE;
-    --dark :#1D2633;
+    --primary: #306a9f;
+    --secondary: #deb038;
+    --warn: #ac2828;
+    --gray: #edebde;
+    --dark: #1d2633;
 }
