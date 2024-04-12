@@ -11,13 +11,21 @@ import { MatChipsModule } from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateMissionDialogComponent } from './components/calendar/create-mission-dialog/create-mission-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     MemberComponent,
-    CalendarComponent
+    CalendarComponent,
+    CreateMissionDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +34,12 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     BrowserAnimationsModule,
     MatChipsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

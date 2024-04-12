@@ -1,8 +1,12 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { FullCalendarComponent } from '@fullcalendar/angular';
-import { Calendar, CalendarOptions, EventSourceInput } from '@fullcalendar/core';
+import { Calendar, CalendarOptions, DateSelectArg, EventSourceInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
+import { CreateMissionDialogComponent } from './create-mission-dialog/create-mission-dialog.component';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
 
 
 @Component({
@@ -31,18 +35,46 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   ];
 
   calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    plugins: [dayGridPlugin, interactionPlugin],
-    dateClick: (arg) => this.handleDateClick(arg),
+
+    plugins: [
+      interactionPlugin,
+      dayGridPlugin,
+      timeGridPlugin,
+      listPlugin
+    ],
+
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    },
+    weekends: true,
+    editable: true,
     selectable: true,
-    events: this.events,
+    selectMirror: true,
+    dayMaxEvents: true,
 
-    // eventContent: this.customEventContent.bind(this),
+    locales: [
+      {
+        code: 'fr',
+        buttonText: {
+          today: 'Aujourd\'hui',
+          month: 'Mois',
+          week: 'Semaine',
+          day: 'Jour',
+          list: 'Liste'
 
-    select: (info) => {
-      // alert('selected ' + info.startStr + ' to ' + info.endStr);
-      console.log('selected ' + info.startStr + ' to ' + info.endStr);
-      this.onAddEvent(info.startStr);
+        },
+      }
+
+    ],
+
+    allDayText: "Toute la journée",
+    noEventsText: "Aucun évènement",
+
+
+    select: (info: DateSelectArg) => {
+      this.handleSelectDate(info)
     },
 
     eventMouseEnter: (arg) => {
@@ -51,21 +83,11 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
   };
 
-  // Custom event
-  // customEventContent(arg: any, createElement: any) {
-  //   const content = document.createElement('div');
-  //   content.classList.add('avatar-event');
-  //   const title = document.createElement('span');
-  //   title.innerText = arg.event.title;
-  //   const avatar = document.createElement('img');
-  //   avatar.src = arg.event.extendedProps.avatar;
-  //   content.appendChild(avatar);
-  //   content.appendChild(title);
-  //   return { domNodes: [content] };
-  // }
 
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
 
@@ -75,9 +97,14 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this.calendarApi = this.calendarComponent?.getApi();
   }
 
-  handleDateClick(arg: DateClickArg): void {
-    console.log('clicked ' + arg.dateStr);
+  handleSelectDate(info: DateSelectArg): void {
+    this.dialog.open(CreateMissionDialogComponent, {
+      data: {
+        animal: 'panda',
+      },
+    });
   }
+
 
   toggleWeekends(): void {
     this.calendarOptions.weekends = !this.calendarOptions.weekends;

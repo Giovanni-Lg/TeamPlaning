@@ -1,0 +1,78 @@
+<div class="dialog-container">
+    <form [formGroup]="missionFormGroup" (ngSubmit)="onCreateMission()">
+
+
+        <h2 class="title">Créer une mission</h2>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nom de la mission</mat-label>
+            <input matInput formControlName="title">
+            <mat-error *ngIf="missionFormGroup.title?.invalid && missionFormGroup.title?.touched">
+                Nom de la mission est obligatoire
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Membre</mat-label>
+            <input matInput formControlName="team_id">
+            <mat-error *ngIf="missionFormGroup.team_id?.invalid && missionFormGroup.team_id?.touched">
+                Membre est obligatoire
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description">
+            <mat-error *ngIf="missionFormGroup.description?.invalid && missionFormGroup.description?.touched">
+                Description est obligatoire
+            </mat-error>
+        </mat-form-field>
+
+
+        <span class="separator"></span>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Date de début</mat-label>
+            <input matInput formControlName="start_date" type="datetime-local">
+            <mat-error *ngIf="missionFormGroup.start_date?.invalid && missionFormGroup.start_date?.touched">
+                Date de début est obligatoire
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Date de fin</mat-label>
+            <input matInput formControlName="end_date" type="datetime-local">
+            <mat-error *ngIf="missionFormGroup.end_date?.invalid && missionFormGroup.end_date?.touched">
+                Date de fin est obligatoire
+            </mat-error>
+        </mat-form-field>
+
+        <!-- team_id form -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <button mat-stroked-button [disabled]="missionFormGroup.invalid" color="primary" type="submit">SAUVEGARDER LES
+            CHANGEMENTS</button>
+    </form>
+
+</div>
