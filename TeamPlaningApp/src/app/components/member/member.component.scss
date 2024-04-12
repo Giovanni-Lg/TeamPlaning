@@ -1,0 +1,15 @@
+.team-member-title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 3px;
+
+    color: white;
+
+    mat-icon {
+        position: relative;
+        top: 3px;
+        right: 2px;
+    }
+}
