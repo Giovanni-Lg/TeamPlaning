@@ -10,12 +10,14 @@ import { MemberComponent } from './components/member/member.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    MemberComponent
+    MemberComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

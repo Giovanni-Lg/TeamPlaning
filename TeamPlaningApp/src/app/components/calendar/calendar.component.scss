@@ -1,0 +1,11 @@
+:host {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    full-calendar {
+        width: 80% !important;
+        height: 80%;
+    }
+}
