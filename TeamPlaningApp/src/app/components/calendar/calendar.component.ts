@@ -18,10 +18,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   events: EventSourceInput = [
     {
       title: 'Event',
-
-      // data and hour
       start: new Date(),
-
       avatar: 'https://i.pravatar.cc/40',
     },
 
@@ -38,8 +35,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
       events: this.events,
 
-      select: (info: DateSelectArg) => {
-        this.handleSelectDate(info)
+      select: (selectedDate: DateSelectArg) => {
+        this.handleSelectDate(selectedDate)
       },
 
       eventMouseEnter: (arg) => {
@@ -63,11 +60,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this.calendarApi = this.calendarComponent?.getApi();
   }
 
-  handleSelectDate(info: DateSelectArg): void {
+  handleSelectDate(selectedDate: DateSelectArg): void {
     this.dialog.open(CreateMissionDialogComponent, {
-      data: {
-        animal: 'panda',
-      },
+      data: selectedDate
     });
   }
 
