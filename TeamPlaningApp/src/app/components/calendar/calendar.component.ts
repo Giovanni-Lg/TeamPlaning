@@ -2,13 +2,8 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import { Calendar, CalendarOptions, DateSelectArg, EventSourceInput } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import { CreateMissionDialogComponent } from './create-mission-dialog/create-mission-dialog.component';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
-
-
+import { CALENDAR_OPTIONS_CONFIG } from 'src/app/calendar-option.config';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -20,66 +15,37 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   calendarApi?: Calendar;
 
-  events = [
+  events: EventSourceInput = [
     {
       title: 'Event',
-      start: '2024-04-01',
+
+      // data and hour
+      start: new Date(),
+
       avatar: 'https://i.pravatar.cc/40',
     },
 
     {
       title: 'Event',
-      start: '2024-04-03',
+      date: '2024-04-03',
       avatar: 'https://i.pravatar.cc/40',
     }
   ];
 
   calendarOptions: CalendarOptions = {
+    ...CALENDAR_OPTIONS_CONFIG,
+    ...{
 
-    plugins: [
-      interactionPlugin,
-      dayGridPlugin,
-      timeGridPlugin,
-      listPlugin
-    ],
+      events: this.events,
 
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-    },
-    weekends: true,
-    editable: true,
-    selectable: true,
-    selectMirror: true,
-    dayMaxEvents: true,
+      select: (info: DateSelectArg) => {
+        this.handleSelectDate(info)
+      },
 
-    locales: [
-      {
-        code: 'fr',
-        buttonText: {
-          today: 'Aujourd\'hui',
-          month: 'Mois',
-          week: 'Semaine',
-          day: 'Jour',
-          list: 'Liste'
-
-        },
-      }
-
-    ],
-
-    allDayText: "Toute la journée",
-    noEventsText: "Aucun évènement",
-
-
-    select: (info: DateSelectArg) => {
-      this.handleSelectDate(info)
-    },
-
-    eventMouseEnter: (arg) => {
-      console.log('eventMouseEnter ' + arg.event.title + arg.el);
-    },
+      eventMouseEnter: (arg) => {
+        console.log('eventMouseEnter ' + arg.event.title + arg.el);
+      },
+    }
 
   };
 

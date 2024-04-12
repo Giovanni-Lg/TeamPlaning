@@ -18,7 +18,7 @@ export class CreateMissionDialogComponent implements OnInit {
   }
 
   onCreateMission(): void {
-    console.log("on create mission")
+    console.log(this.missionFormGroup.value);
   }
 
 }

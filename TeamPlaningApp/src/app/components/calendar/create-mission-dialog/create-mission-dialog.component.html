@@ -34,22 +34,58 @@
         <span class="separator"></span>
 
 
-        <mat-form-field appearance="outline">
-            <mat-label>Date de début</mat-label>
-            <input matInput formControlName="start_date" type="datetime-local">
-            <mat-error *ngIf="missionFormGroup.start_date?.invalid && missionFormGroup.start_date?.touched">
-                Date de début est obligatoire
-            </mat-error>
-        </mat-form-field>
+        <div class="date-hour">
+            <mat-form-field appearance="outline">
+                <mat-label>Date de début</mat-label>
+                <input matInput formControlName="start_date" type="date">
+                <mat-error *ngIf="missionFormGroup.start_date?.invalid && missionFormGroup.start_date?.touched">
+                    Date de début est obligatoire
+                </mat-error>
+            </mat-form-field>
 
 
-        <mat-form-field appearance="outline">
-            <mat-label>Date de fin</mat-label>
-            <input matInput formControlName="end_date" type="datetime-local">
-            <mat-error *ngIf="missionFormGroup.end_date?.invalid && missionFormGroup.end_date?.touched">
-                Date de fin est obligatoire
-            </mat-error>
-        </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Date de fin</mat-label>
+                <input matInput formControlName="end_date" type="date">
+                <mat-error *ngIf="missionFormGroup.end_date?.invalid && missionFormGroup.end_date?.touched">
+                    Date de fin est obligatoire
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <span class="separator"></span>
+
+
+        <div class="all-day-checkbox">
+            <mat-checkbox formControlName="all_day">Toute la journée</mat-checkbox>
+        </div>
+
+        <span class="separator"></span>
+
+
+        <div class="date-hour" *ngIf="!(missionFormGroup.all_day?.value)">
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Heure de début</mat-label>
+                <input matInput type="time" formControlName="start_hour">
+                <mat-error *ngIf="missionFormGroup.start_hour?.invalid && missionFormGroup.start_hour?.touched">
+                    heure de début est obligatoire
+                </mat-error>
+            </mat-form-field>
+
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Heure de fin</mat-label>
+                <input matInput type="time" formControlName="end_hour">
+                <mat-error *ngIf="missionFormGroup.end_hour?.invalid && missionFormGroup.end_hour?.touched">
+                    heure de fin est obligatoire
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+
+
 
         <!-- team_id form -->
 
