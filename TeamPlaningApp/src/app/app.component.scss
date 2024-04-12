@@ -7,9 +7,10 @@
         border: 1px solid black;
 
         .member {
-            width: 18em;
-           padding: 2em;
+            min-width: 12em;
+            padding: 2em;
             background-color: var(--dark);
+            overflow: scroll;
         }
 
         .calendar {

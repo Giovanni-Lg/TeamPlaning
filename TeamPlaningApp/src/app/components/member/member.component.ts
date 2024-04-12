@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-member',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberComponent implements OnInit {
 
-  constructor() { }
+  teamMembers$ = this._httpService.getTeamMockData();
+
+  constructor(
+    private _httpService: HttpService
+  ) { }
 
   ngOnInit(): void {
   }
+
 
 }
