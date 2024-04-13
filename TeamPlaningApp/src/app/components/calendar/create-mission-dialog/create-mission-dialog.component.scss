@@ -25,6 +25,18 @@
             margin-bottom: 1em;
         }
 
+        .color {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            mat-form-field {
+                width: 10em;
+                position: relative;
+                left: 22px;
+            }
+        }
+
         .date-hour {
             display: flex;
             flex-direction: row;

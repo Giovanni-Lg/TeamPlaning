@@ -23,7 +23,8 @@ export const CALENDAR_OPTIONS_CONFIG: CalendarOptions = {
     editable: true,
     selectable: true,
     selectMirror: true,
-    dayMaxEvents: true,
+    dayMaxEvents: false,
+
 
     locales: [
         {

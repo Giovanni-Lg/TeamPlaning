@@ -41,21 +41,21 @@ export class CreateMissionDialogComponent implements OnInit {
   }
 
   onCreateMission(): void {
-    const mission : Mission = this.missionFormGroup.value;
+    const mission: Mission = this.missionFormGroup.value;
 
     const startDate = this._dateService.createDate(mission.start_date, mission.start_hour);
     const endDate = this._dateService.createDate(mission.end_date, mission.end_hour);
 
     this.calendarApi?.addEvent(
       {
-        title: 'New Event',
-        description : mission.description,
+        title: mission.title,
+        description: mission.description,
         start: startDate,
         editable: true,
         end: endDate,
         avatar: './../assets/john-doe.jpg',
-        allDay : mission.all_day
-        // backgroundColor: this.randomHexColor(),
+        allDay: mission.all_day,
+        backgroundColor: mission.color,
       });
   }
 

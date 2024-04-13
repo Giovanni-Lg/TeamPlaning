@@ -17,6 +17,8 @@ export class MissionFormGroup extends FormGroup {
             end_hour: new FormControl('', [Validators.required]),
 
             team_id: new FormControl('', [Validators.required]),
+
+            color : new FormControl('', [Validators.required]),
         });
 
         // Patch values using provided data
@@ -55,5 +57,9 @@ export class MissionFormGroup extends FormGroup {
 
     public get end_hour() {
         return this.get('end_hour');
+    }
+
+    public get color() {
+        return this.get('color');
     }
 }

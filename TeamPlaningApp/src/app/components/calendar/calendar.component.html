@@ -1,12 +1,11 @@
+<full-calendar #calendar [options]="calendarOptions">
 
-        <full-calendar #calendar [options]="calendarOptions">
+    <ng-template #eventContent let-arg>
+        <div style="display: flex; flex-direction: row; justify-content: center;align-items: center; flex-wrap: wrap;">
+            <img class="avatarImg" style="border-radius: 50%; margin: 0.5em;" width="25" height="25"
+                [src]="arg.event.extendedProps.avatar" alt="" srcset="">
+            <b style="margin-right: 1em;">{{ arg.event.title }}</b>
+        </div>
+    </ng-template>
 
-            <ng-template #eventContent let-arg>
-                <div style="display: flex; flex-direction: row; justify-content: center;align-items: center;">
-                    <img class="avatarImg" style="border-radius: 50%; margin: 0.5em;" width="25" height="25"
-                        [src]="arg.event.extendedProps.avatar" alt="" srcset="">
-                    <b style="margin-right: 1em;">{{ arg.event.title }}</b>
-                </div>
-            </ng-template>
-
-        </full-calendar>
+</full-calendar>

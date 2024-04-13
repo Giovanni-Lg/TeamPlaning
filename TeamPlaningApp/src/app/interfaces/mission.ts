@@ -8,6 +8,8 @@ export interface Mission {
 
     all_day: boolean,
     start_hour : string,
-    end_hour: string
+    end_hour: string,
+
+    color : string,
 
 }

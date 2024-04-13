@@ -21,6 +21,17 @@
             </mat-error>
         </mat-form-field>
 
+        <div class="color">
+            <mat-form-field appearance="fill">
+                <mat-label>Couleur</mat-label>
+                <input matInput type="color" formControlName="color">
+                <mat-error *ngIf="missionFormGroup.color?.invalid && missionFormGroup.color?.touched">
+                    Couleur est obligatoire
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
 
         <mat-form-field appearance="outline">
             <mat-label>Description</mat-label>
