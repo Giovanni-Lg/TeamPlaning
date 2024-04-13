@@ -34,6 +34,13 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         this.handleEventClick(arg)
       },
 
+      eventMouseEnter: (arg) => {
+        this.toggleTooltip(arg)
+      },
+
+      eventMouseLeave: () => {
+        this.toggleTooltip();
+      }
     }
 
   };
@@ -93,13 +100,15 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
 
+  // Tooltip
+
   showTooltip = false;
   argEvent?: MissionEvent;
 
-  toggleTooltip(arg?: any) {
-    this.argEvent = arg?.event;
+  toggleTooltip(arg?: EventHoveringArg): void {
+    this.argEvent = arg?.event as any as MissionEvent;
     if (arg) {
-      this.showTooltip = arg;
+      this.showTooltip = true;
     }
     else {
       this.showTooltip = false;

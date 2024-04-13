@@ -4,7 +4,7 @@
         "description": "in felis donec semper sapien a libero nam dui proin leo odio",
         "start": "2024-04-22 02:52:07",
         "end": "2024-04-11 01:38:23",
-        "editable": true,
+        "editable": false,
         "allDay": true,
         "backgroundColor": "#62afdd",
         "teamMember": {
@@ -19,7 +19,7 @@
         "description": "ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque",
         "start": "2024-04-05 03:07:58",
         "end": "2024-04-01 02:41:21",
-        "editable": true,
+        "editable": false,
         "allDay": true,
         "backgroundColor": "#6a3e3f",
         "teamMember": {
