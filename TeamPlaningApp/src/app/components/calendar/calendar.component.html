@@ -1,7 +1,7 @@
 <full-calendar #calendar [options]="calendarOptions">
 
     <ng-template #eventContent let-arg>
-        <div
+        <div [matTooltip]="arg.event.title +' --- '+ arg.event.extendedProps.description" matTooltipClass="mission-info"
             style="display: flex; flex-direction: row; justify-content: center;align-items: center; flex-wrap: wrap;cursor: pointer;">
             <img class="avatarImg" style="border-radius: 50%; margin: 0.5em; border: 1px solid var(--gray);" width="25"
                 height="25" [src]="arg.event.extendedProps.teamMember?.avatar" alt="" srcset="">
