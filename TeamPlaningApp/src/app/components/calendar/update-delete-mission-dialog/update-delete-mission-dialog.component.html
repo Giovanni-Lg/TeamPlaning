@@ -10,16 +10,16 @@
 
 
 
-        <mat-form-field appearance="outline">
-            <mat-label>Nom de la mission</mat-label>
+        <mat-form-field appearance="standard">
+            <mat-label>Titre de la mission</mat-label>
             <input matInput formControlName="title">
             <mat-error *ngIf="missionFormGroup.title?.invalid && missionFormGroup.title?.touched">
-                Nom de la mission est obligatoire
+                Titre de la mission est obligatoire
             </mat-error>
         </mat-form-field>
 
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="standard">
             <mat-label>Membre
                 <ng-container *ngIf="teamMember && !missionFormGroup.teamMember?.touched "> : {{teamMember.first_name}}
                     {{teamMember.last_name}}</ng-container>
@@ -38,7 +38,7 @@
 
 
         <div class="color">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="standard">
                 <mat-label>Couleur</mat-label>
                 <input matInput type="color" formControlName="color">
                 <mat-error *ngIf="missionFormGroup.color?.invalid && missionFormGroup.color?.touched">
@@ -49,7 +49,7 @@
 
 
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="standard">
             <mat-label>Description</mat-label>
             <input matInput formControlName="description">
             <mat-error *ngIf="missionFormGroup.description?.invalid && missionFormGroup.description?.touched">
@@ -62,7 +62,7 @@
 
 
         <div class="date-hour">
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="standard">
                 <mat-label>Date de début</mat-label>
                 <input matInput formControlName="start_date" type="date">
                 <mat-error *ngIf="missionFormGroup.start_date?.invalid && missionFormGroup.start_date?.touched">
@@ -71,7 +71,7 @@
             </mat-form-field>
 
 
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="standard">
                 <mat-label>Date de fin</mat-label>
                 <input matInput formControlName="end_date" type="date">
                 <mat-error *ngIf="missionFormGroup.end_date?.invalid && missionFormGroup.end_date?.touched">
@@ -92,7 +92,7 @@
         <div class="date-hour" *ngIf="!(missionFormGroup.all_day?.value)">
 
 
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="standard">
                 <mat-label>Heure de début</mat-label>
                 <input matInput type="time" formControlName="start_hour">
                 <mat-error *ngIf="missionFormGroup.start_hour?.invalid && missionFormGroup.start_hour?.touched">
@@ -102,7 +102,7 @@
 
 
 
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="standard">
                 <mat-label>Heure de fin</mat-label>
                 <input matInput type="time" formControlName="end_hour">
                 <mat-error *ngIf="missionFormGroup.end_hour?.invalid && missionFormGroup.end_hour?.touched">

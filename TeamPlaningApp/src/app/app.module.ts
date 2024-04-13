@@ -20,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { UpdateDeleteMissionDialogComponent } from './components/calendar/update-delete-mission-dialog/update-delete-mission-dialog.component';
-import {MatTooltipModule} from '@angular/material/tooltip'; 
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { TooltipComponent } from './components/calendar/tooltip/tooltip.component'; 
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MemberComponent,
     CalendarComponent,
     CreateMissionDialogComponent,
-    UpdateDeleteMissionDialogComponent
+    UpdateDeleteMissionDialogComponent,
+    TooltipComponent
   ],
   imports: [
     BrowserModule,

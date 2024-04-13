@@ -8,7 +8,9 @@ export interface MissionEvent {
     editable: boolean;
     allDay: boolean;
     backgroundColor: string;
-
     teamMember: TeamMember;
+
+    extendedProps?: any;
+
 }
 

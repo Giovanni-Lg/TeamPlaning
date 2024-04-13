@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FullCalendarComponent } from '@fullcalendar/angular';
-import { Calendar, CalendarOptions, DateSelectArg, EventClickArg, EventSourceInput } from '@fullcalendar/core';
+import { Calendar, CalendarOptions, DateSelectArg, EventClickArg, EventHoveringArg, EventSourceInput } from '@fullcalendar/core';
 import { CreateMissionDialogComponent } from './create-mission-dialog/create-mission-dialog.component';
 import { CALENDAR_OPTIONS_CONFIG } from 'src/app/calendar-option.config';
 import { StateService } from 'src/app/services/state.service';
@@ -33,6 +33,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       eventClick: (arg) => {
         this.handleEventClick(arg)
       },
+
     }
 
   };
@@ -74,7 +75,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     const eventObj = arg.event;
     const selectedTeamMember = eventObj.extendedProps['teamMember'];
 
-    const selectedMission : Mission = {
+    const selectedMission: Mission = {
       title: eventObj.title,
       description: eventObj.extendedProps['description'],
       start_date: eventObj.startStr,
@@ -89,6 +90,21 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this._dialog.open(UpdateDeleteMissionDialogComponent, {
       data: selectedMission
     });
+  }
+
+
+  showTooltip = false;
+  argEvent?: MissionEvent;
+
+  toggleTooltip(arg?: any) {
+    this.argEvent = arg?.event;
+    if (arg) {
+      this.showTooltip = arg;
+    }
+    else {
+      this.showTooltip = false;
+      this.argEvent = undefined;
+    }
   }
 }
 

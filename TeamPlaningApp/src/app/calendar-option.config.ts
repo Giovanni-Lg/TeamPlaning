@@ -19,7 +19,7 @@ export const CALENDAR_OPTIONS_CONFIG: CalendarOptions = {
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
     weekends: true,
-    editable: true,
+    editable: false,
     selectable: true,
     selectMirror: true,
     dayMaxEvents: false,

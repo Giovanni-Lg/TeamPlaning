@@ -5,15 +5,15 @@
         <h2 class="title">Créer une mission</h2>
 
         <mat-form-field appearance="outline">
-            <mat-label>Nom de la mission</mat-label>
+            <mat-label>Titre de la mission</mat-label>
             <input matInput formControlName="title">
             <mat-error *ngIf="missionFormGroup.title?.invalid && missionFormGroup.title?.touched">
-                Nom de la mission est obligatoire
+                Titre de la mission est obligatoire
             </mat-error>
         </mat-form-field>
 
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Membre</mat-label>
             <mat-select formControlName="teamMember">
                 <mat-option *ngFor="let member of teamMembers$ |async" [value]="member">
@@ -29,7 +29,7 @@
 
 
         <div class="color">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="standard">
                 <mat-label>Couleur</mat-label>
                 <input matInput type="color" formControlName="color">
                 <mat-error *ngIf="missionFormGroup.color?.invalid && missionFormGroup.color?.touched">
