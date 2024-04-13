@@ -13,11 +13,18 @@ export const CALENDAR_OPTIONS_CONFIG: CalendarOptions = {
         timeGridPlugin,
         listPlugin
     ],
+    // responsive
+    height: 'auto',
+    contentHeight: 'auto',
+
+
+
     headerToolbar: {
-        left: 'prev,next today',
+        left: 'prev,next,today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
+
     weekends: true,
     editable: false,
     selectable: true,

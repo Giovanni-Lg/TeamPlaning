@@ -64,7 +64,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
   handleSelectDate(selectedDate: DateSelectArg): void {
     this._dialog.open(CreateMissionDialogComponent, {
-      data: selectedDate
+      data: selectedDate,
+      maxWidth: "95vw",
+
     });
   }
 
@@ -95,7 +97,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     };
 
     this._dialog.open(UpdateDeleteMissionDialogComponent, {
-      data: selectedMission
+      data: selectedMission,
+      maxWidth: "95vw",
     });
   }
 

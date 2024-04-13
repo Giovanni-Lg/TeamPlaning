@@ -1,49 +1,65 @@
-.dialog-container {
-    width: 30em;
-    form {
-        // width: 95%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+:host {
+    .dialog-container {
+        width: 30em;
 
-        mat-form-field {
-            width: 90%;
+        height: 80vh;
+        overflow: scroll;
+
+        // responsive
+        @media screen and (max-width: 613px) {
+            width: 80vw;
         }
 
-        .separator {
-            width: 100%;
-            border-top: 1px solid var(--gray);
-            height: 1px;
-            padding-top: 1em;
-        }
-
-        .all-day-checkbox {
-            width: 100%;
+        form {
+            // width: 95%;
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-bottom: 1em;
-        }
-
-        .color {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: start;
-            mat-form-field {
-                width: 10em;
-                position: relative;
-                left: 22px;
-            }
-        }
-
-        .date-hour {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            width: 13em;
-            gap: 1em;
+
+            mat-form-field {
+                width: 90%;
+            }
+
+            .separator {
+                width: 100%;
+                border-top: 1px solid var(--gray);
+                height: 1px;
+                padding-top: 1em;
+            }
+
+            .all-day-checkbox {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-bottom: 1em;
+            }
+
+            .color {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: start;
+                mat-form-field {
+                    width: 10em;
+                    position: relative;
+                    left: 22px;
+                }
+            }
+
+            .date-hour {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                @media screen and (max-width: 613px) {
+                    flex-wrap: wrap;
+                }
+
+                width: 13em;
+                gap: 1em;
+            }
         }
     }
 }

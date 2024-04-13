@@ -16,3 +16,15 @@ body {
     --dark: #1d2633;
 }
 
+.team-member-dialog {
+    padding: 0px !important;
+    overflow: auto;
+
+    .mat-dialog-container {
+        background-color: var(--dark);
+    }
+}
+
+.fc .fc-toolbar {
+    gap: 20px;
+}
