@@ -26,14 +26,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     ...CALENDAR_OPTIONS_CONFIG,
     ...{
 
-
       select: (selectedDate: DateSelectArg) => {
         this.handleSelectDate(selectedDate)
       },
-
-      // eventMouseEnter: (arg) => {
-      //   console.log('eventMouseEnter ' + arg.event.title + arg.el);
-      // },
 
       eventClick: (arg) => {
         this.handleEventClick(arg)

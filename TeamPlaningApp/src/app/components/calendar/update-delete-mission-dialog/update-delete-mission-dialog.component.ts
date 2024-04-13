@@ -43,14 +43,12 @@ export class UpdateDeleteMissionDialogComponent implements OnInit {
       teamMember: this.selectedMission.teamMember
     }
     this.teamMember = this.selectedMission.teamMember;
-    console.log(selectedMissionCopy);
 
     this.missionFormGroup.patchValue(selectedMissionCopy);
   }
 
   onUpdateMission(): void {
 
-    console.log(this.missionFormGroup.value);
     const mission: Mission = this.missionFormGroup.value;
 
     const startDate = this._dateService.createDate(mission.start_date, mission.start_hour);

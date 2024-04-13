@@ -28,8 +28,6 @@ export class CreateMissionDialogComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    console.log(this.selectedDate);
     const selectedDateOnCalendar = {
       start_date: this._dateService.formatDateTo_AAAA_MM_JJ(this.selectedDate.start),
       end_date: this._dateService.formatDateTo_AAAA_MM_JJ(this.selectedDate.end),
@@ -38,9 +36,6 @@ export class CreateMissionDialogComponent implements OnInit {
       start_hour: this._dateService.formatTimeTo_HH_MM(this.selectedDate.start),
       end_hour: this._dateService.formatTimeTo_HH_MM(this.selectedDate.end),
     }
-
-    console.log(selectedDateOnCalendar);
-
     this.missionFormGroup.patchValue(selectedDateOnCalendar);
   }
 
