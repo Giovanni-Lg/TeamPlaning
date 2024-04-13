@@ -1,4 +1,4 @@
-import { Team } from "./team";
+import { TeamMember } from "./team-member";
 
 export interface MissionEvent {
     title: string;
@@ -9,6 +9,6 @@ export interface MissionEvent {
     allDay: boolean;
     backgroundColor: string;
 
-    teamMember: Team;
+    teamMember: TeamMember;
 }
 

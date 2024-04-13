@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Team } from '../interfaces/team';
+import { TeamMember } from '../interfaces/team-member';
 import { MissionEvent } from '../interfaces/mission-event';
 
 @Injectable({
@@ -17,8 +17,8 @@ export class HttpService {
     private _http: HttpClient
   ) { }
 
-  getTeamMockData(): Observable<Team[]> {
-    return this._http.get<Team[]>(this.GET_TEAM_MOCK_DATA_URL);
+  getTeamMockData(): Observable<TeamMember[]> {
+    return this._http.get<TeamMember[]>(this.GET_TEAM_MOCK_DATA_URL);
   }
 
   getMissionEventMockData(): Observable<MissionEvent[]> {

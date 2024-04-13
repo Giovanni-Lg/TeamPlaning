@@ -1,4 +1,4 @@
-import { Team } from "./team"
+import { TeamMember } from "./team-member"
 
 export interface Mission {
     title: string
@@ -9,6 +9,6 @@ export interface Mission {
     start_hour: string,
     end_hour: string,
     color: string,
-    teamMember: Team
+    teamMember: TeamMember
 
 }

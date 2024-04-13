@@ -1,8 +1,14 @@
 <div class="dialog-container">
-    <form [formGroup]="missionFormGroup" (ngSubmit)="onCreateMission()">
+
+    <div class="nav-menu">
+        <!-- delete angular material icon -->
+        <mat-icon color="warn" aria-hidden="false" mat-dialog-close aria-label="delete mission"
+            matTooltip="Supprimer la mission" (click)="onDeleteMission()">delete</mat-icon>
+    </div>
+
+    <form [formGroup]="missionFormGroup" (ngSubmit)="onUpdateMission()">
 
 
-        <h2 class="title">Créer une mission</h2>
 
         <mat-form-field appearance="outline">
             <mat-label>Nom de la mission</mat-label>
@@ -14,10 +20,13 @@
 
 
         <mat-form-field appearance="fill">
-            <mat-label>Membre</mat-label>
+            <mat-label>Membre
+                <ng-container *ngIf="teamMember && !missionFormGroup.teamMember?.touched "> : {{teamMember.first_name}}
+                    {{teamMember.last_name}}</ng-container>
+            </mat-label>
             <mat-select formControlName="teamMember">
                 <mat-option *ngFor="let member of teamMembers$ |async" [value]="member">
-                    {{member.last_name}} {{member.first_name}} 
+                    {{member.last_name}} {{member.first_name}}
                 </mat-option>
             </mat-select>
 

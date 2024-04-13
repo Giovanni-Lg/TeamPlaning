@@ -19,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { UpdateDeleteMissionDialogComponent } from './components/calendar/update-delete-mission-dialog/update-delete-mission-dialog.component';
+import {MatTooltipModule} from '@angular/material/tooltip'; 
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { MatSelectModule } from '@angular/material/select';
     NavBarComponent,
     MemberComponent,
     CalendarComponent,
-    CreateMissionDialogComponent
+    CreateMissionDialogComponent,
+    UpdateDeleteMissionDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,9 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

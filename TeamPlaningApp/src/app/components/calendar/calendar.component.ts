@@ -8,6 +8,7 @@ import { StateService } from 'src/app/services/state.service';
 import { HttpService } from 'src/app/services/http.service';
 import { MissionEvent } from 'src/app/interfaces/mission-event';
 import { Mission } from 'src/app/interfaces/mission';
+import { UpdateDeleteMissionDialogComponent } from './update-delete-mission-dialog/update-delete-mission-dialog.component';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -90,7 +91,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       teamMember: selectedTeamMember
     };
 
-    console.log(selectedMission);
+    this._dialog.open(UpdateDeleteMissionDialogComponent, {
+      data: selectedMission
+    });
   }
 }
 
