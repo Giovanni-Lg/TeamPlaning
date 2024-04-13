@@ -75,7 +75,7 @@ export class UpdateDeleteMissionDialogComponent implements OnInit {
     this.calendarApi?.removeAllEvents();
     this.calendarApi?.addEventSource(eventsStat as EventSourceInput);
 
-
+    console.log('Changement :', newEvent);
   }
 
 
