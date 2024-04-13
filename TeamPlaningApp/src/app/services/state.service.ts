@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Calendar } from '@fullcalendar/core';
+import { MissionEvent } from '../interfaces/mission-event';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import { Calendar } from '@fullcalendar/core';
 export class StateService {
 
   calendarApi?: Calendar;
+  event?: MissionEvent [];
+
 
   constructor() { }
 

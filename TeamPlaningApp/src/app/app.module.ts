@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

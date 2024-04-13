@@ -16,7 +16,7 @@ export class MissionFormGroup extends FormGroup {
             start_hour: new FormControl('', [Validators.required]),
             end_hour: new FormControl('', [Validators.required]),
 
-            team_id: new FormControl('', [Validators.required]),
+            teamMember: new FormControl('', [Validators.required]),
 
             color : new FormControl('', [Validators.required]),
         });
@@ -43,8 +43,8 @@ export class MissionFormGroup extends FormGroup {
         return this.get('end_date');
     }
 
-    public get team_id() {
-        return this.get('team_id');
+    public get teamMember() {
+        return this.get('teamMember');
     }
 
     public get all_day() {

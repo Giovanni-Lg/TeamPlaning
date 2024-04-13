@@ -13,7 +13,6 @@ export const CALENDAR_OPTIONS_CONFIG: CalendarOptions = {
         timeGridPlugin,
         listPlugin
     ],
-
     headerToolbar: {
         left: 'prev,next today',
         center: 'title',
@@ -24,8 +23,6 @@ export const CALENDAR_OPTIONS_CONFIG: CalendarOptions = {
     selectable: true,
     selectMirror: true,
     dayMaxEvents: false,
-
-
     locales: [
         {
             code: 'fr',
@@ -38,9 +35,8 @@ export const CALENDAR_OPTIONS_CONFIG: CalendarOptions = {
             },
         }
     ],
-
     allDayText: "Toute la journée",
     noEventsText: "Aucun évènement",
-
+    firstDay: 1,
 
 };

@@ -13,13 +13,22 @@
         </mat-form-field>
 
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
             <mat-label>Membre</mat-label>
-            <input matInput formControlName="team_id">
-            <mat-error *ngIf="missionFormGroup.team_id?.invalid && missionFormGroup.team_id?.touched">
+            <mat-select formControlName="teamMember">
+                <mat-option *ngFor="let member of teamMembers$ |async" [value]="member">
+                    {{member.last_name}} {{member.first_name}} 
+                </mat-option>
+            </mat-select>
+
+            <mat-error *ngIf="missionFormGroup.teamMember?.invalid && missionFormGroup.teamMember?.touched">
                 Membre est obligatoire
             </mat-error>
         </mat-form-field>
+
+
+
+
 
         <div class="color">
             <mat-form-field appearance="fill">

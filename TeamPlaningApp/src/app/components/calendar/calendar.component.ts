@@ -6,6 +6,8 @@ import { CreateMissionDialogComponent } from './create-mission-dialog/create-mis
 import { CALENDAR_OPTIONS_CONFIG } from 'src/app/calendar-option.config';
 import { Mission } from 'src/app/interfaces/mission';
 import { StateService } from 'src/app/services/state.service';
+import { HttpService } from 'src/app/services/http.service';
+import { MissionEvent } from 'src/app/interfaces/mission-event';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -17,25 +19,12 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   calendarApi?: Calendar;
 
-  events: EventSourceInput = [
-    {
-      title: 'Event',
-      start: new Date(),
-      avatar: 'https://i.pravatar.cc/40',
-    },
-
-    {
-      title: 'Event',
-      date: '2024-04-03',
-      avatar: 'https://i.pravatar.cc/40',
-    }
-  ];
+  events: EventSourceInput = [];
 
   calendarOptions: CalendarOptions = {
     ...CALENDAR_OPTIONS_CONFIG,
     ...{
 
-      events: this.events,
 
       select: (selectedDate: DateSelectArg) => {
         this.handleSelectDate(selectedDate)
@@ -52,16 +41,18 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
   constructor(
     private _dialog: MatDialog,
-    private _stateService: StateService
+    private _stateService: StateService,
+    private _httpService: HttpService,
   ) { }
 
   ngOnInit(): void {
-    
+
   }
 
   ngAfterViewInit(): void {
     this.calendarApi = this.calendarComponent?.getApi();
     this._stateService.calendarApi = this.calendarApi;
+    this.getMissionEventRessource();
   }
 
   handleSelectDate(selectedDate: DateSelectArg): void {
@@ -70,22 +61,19 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     });
   }
 
+  getMissionEventRessource(): void {
+    this._httpService.getMissionEventMockData().subscribe({
+      next: (missionEvents) => {
+        this.events = missionEvents as EventSourceInput;
+        this.calendarApi?.addEventSource(this.events);
+        this._stateService.event = this.events as MissionEvent[];
+      }
+    })
+  }
+
 
   toggleWeekends(): void {
     this.calendarOptions.weekends = !this.calendarOptions.weekends;
-  }
-
-  onAddEvent(mission: Mission): void {
-
-    this.calendarApi?.addEvent(
-      {
-        title: 'New Event',
-        start: mission.start_date,
-        editable: true,
-        end: mission.end_date,
-        avatar: './../assets/john-doe.jpg',
-        backgroundColor: this.randomHexColor(),
-      });
   }
 
   randomHexColor(): string {
