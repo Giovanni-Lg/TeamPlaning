@@ -4,6 +4,8 @@ import { FullCalendarComponent } from '@fullcalendar/angular';
 import { Calendar, CalendarOptions, DateSelectArg, EventSourceInput } from '@fullcalendar/core';
 import { CreateMissionDialogComponent } from './create-mission-dialog/create-mission-dialog.component';
 import { CALENDAR_OPTIONS_CONFIG } from 'src/app/calendar-option.config';
+import { Mission } from 'src/app/interfaces/mission';
+import { StateService } from 'src/app/services/state.service';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -49,19 +51,21 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
 
   constructor(
-    private dialog: MatDialog
+    private _dialog: MatDialog,
+    private _stateService: StateService
   ) { }
 
   ngOnInit(): void {
-
+    
   }
 
   ngAfterViewInit(): void {
     this.calendarApi = this.calendarComponent?.getApi();
+    this._stateService.calendarApi = this.calendarApi;
   }
 
   handleSelectDate(selectedDate: DateSelectArg): void {
-    this.dialog.open(CreateMissionDialogComponent, {
+    this._dialog.open(CreateMissionDialogComponent, {
       data: selectedDate
     });
   }
@@ -71,14 +75,14 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this.calendarOptions.weekends = !this.calendarOptions.weekends;
   }
 
-  onAddEvent(start: string): void {
-
-
+  onAddEvent(mission: Mission): void {
 
     this.calendarApi?.addEvent(
       {
         title: 'New Event',
-        start: start, editable: true,
+        start: mission.start_date,
+        editable: true,
+        end: mission.end_date,
         avatar: './../assets/john-doe.jpg',
         backgroundColor: this.randomHexColor(),
       });

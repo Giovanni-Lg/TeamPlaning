@@ -7,14 +7,10 @@ export class DateService {
 
   constructor() { }
 
-  formatDateTo_AAAA_MM_JJ(date: Date, isEndDate?: boolean): string {
+  formatDateTo_AAAA_MM_JJ(date: Date): string {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     let day = date.getDate();
-
-    if (isEndDate) {
-      day = Number(day) - 1;
-    }
 
     const formattedMonth = month < 10 ? `0${month}` : month;
     const formattedDay = day < 10 ? `0${day}` : day;
@@ -27,6 +23,12 @@ export class DateService {
     const minutes = date.getMinutes().toString().padStart(2, '0');
     const formattedTime = hours + ':' + minutes;
     return formattedTime;
+  }
+
+  createDate(dateString: string, timeString: string): Date {
+    let [year, month, day] = dateString.split('-').map(Number);
+    let [hours, minutes] = timeString.split(':').map(Number);
+    return new Date(year, month - 1, day, hours, minutes);
   }
 
 }
