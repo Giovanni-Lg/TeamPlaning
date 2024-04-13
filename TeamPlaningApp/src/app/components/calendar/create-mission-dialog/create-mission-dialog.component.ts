@@ -52,13 +52,11 @@ export class CreateMissionDialogComponent implements OnInit {
 
     const newEvent =
     {
-      id: 5,
       title: mission.title,
       description: mission.description,
       start: startDate,
       editable: true,
       end: endDate,
-      avatar: './../assets/john-doe.jpg',
       allDay: mission.all_day,
       backgroundColor: mission.color,
       id_teamMember: mission,

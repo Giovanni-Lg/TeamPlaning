@@ -1,7 +1,6 @@
 import { Team } from "./team";
 
 export interface MissionEvent {
-    id: number;
     title: string;
     description: string;
     start: string | Date;

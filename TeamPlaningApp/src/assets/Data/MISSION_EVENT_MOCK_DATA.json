@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "title": "Mission 1",
         "description": "in felis donec semper sapien a libero nam dui proin leo odio",
         "start": "2024-04-22 02:52:07",
@@ -8,16 +7,13 @@
         "editable": true,
         "allDay": true,
         "backgroundColor": "#62afdd",
-        "team_id": 1,
         "teamMember": {
-            "id": 1,
             "first_name": "Desiree",
             "last_name": "Scough",
             "avatar": "https://robohash.org/absediusto.png?size=50x50&set=set1"
         }
     },
     {
-        "id": 2,
         "title": "Mission 2",
         "description": "ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque",
         "start": "2024-04-05 03:07:58",
@@ -25,16 +21,13 @@
         "editable": true,
         "allDay": true,
         "backgroundColor": "#6a3e3f",
-        "team_id": 2,
         "teamMember": {
-            "id": 2,
             "first_name": "Tommie",
             "last_name": "Woodes",
             "avatar": "https://robohash.org/pariaturlaborenihil.png?size=50x50&set=set1"
         }
     },
     {
-        "id": 3,
         "title": "Mission 3",
         "description": "ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus",
         "start": "2024-04-19 20:21:08",
@@ -42,16 +35,13 @@
         "editable": false,
         "allDay": true,
         "backgroundColor": "#112520",
-        "team_id": 3,
         "teamMember": {
-            "id": 3,
             "first_name": "Lay",
             "last_name": "Mungin",
             "avatar": "https://robohash.org/sintdoloresquibusdam.png?size=50x50&set=set1"
         }
     },
     {
-        "id": 4,
         "title": "Esma",
         "description": "donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit",
         "start": "2024-04-03 05:28:32",
@@ -59,16 +49,13 @@
         "editable": false,
         "allDay": true,
         "backgroundColor": "#dcda28",
-        "team_id": 4,
         "teamMember": {
-            "id": 4,
             "first_name": "Maura",
             "last_name": "Fairbeard",
             "avatar": "https://robohash.org/verocorporisunde.png?size=50x50&set=set1"
         }
     },
     {
-        "id": 5,
         "title": "Loy",
         "description": "ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien",
         "start": "2024-04-17 19:12:42",
@@ -76,9 +63,7 @@
         "editable": false,
         "allDay": true,
         "backgroundColor": "#9c3718",
-        "team_id": 5,
         "teamMember": {
-            "id": 5,
             "first_name": "Floris",
             "last_name": "Mulqueen",
             "avatar": "https://robohash.org/etetdolorem.png?size=50x50&set=set1"
