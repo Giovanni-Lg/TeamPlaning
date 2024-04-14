@@ -4,15 +4,11 @@
     flex-direction: column;
     align-items: center;
     height: 95%;
-
-    
-
     overflow: auto;
 
     full-calendar {
         overflow: auto;
         width: 80% !important;
-
         margin-bottom: 1em;
 
         @media screen and (max-width: 600px) {

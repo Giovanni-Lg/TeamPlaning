@@ -1,13 +1,11 @@
 <div class="dialog-container">
 
     <div class="nav-menu">
-        <!-- delete angular material icon -->
         <mat-icon color="warn" aria-hidden="false" mat-dialog-close aria-label="delete mission"
             matTooltip="Supprimer la mission" (click)="onDeleteMission()">delete</mat-icon>
     </div>
 
     <form [formGroup]="missionFormGroup" (ngSubmit)="onUpdateMission()">
-
 
 
         <mat-form-field appearance="standard">
@@ -47,8 +45,6 @@
             </mat-form-field>
         </div>
 
-
-
         <mat-form-field appearance="standard">
             <mat-label>Description</mat-label>
             <input matInput formControlName="description">
@@ -70,7 +66,6 @@
                 </mat-error>
             </mat-form-field>
 
-
             <mat-form-field appearance="standard">
                 <mat-label>Date de fin</mat-label>
                 <input matInput formControlName="end_date" type="date">
@@ -79,6 +74,8 @@
                 </mat-error>
             </mat-form-field>
         </div>
+
+
         <span class="separator"></span>
 
 
@@ -86,11 +83,11 @@
             <mat-checkbox formControlName="all_day">Toute la journée</mat-checkbox>
         </div>
 
+
         <span class="separator"></span>
 
 
         <div class="date-hour" *ngIf="!(missionFormGroup.all_day?.value)">
-
 
             <mat-form-field appearance="standard">
                 <mat-label>Heure de début</mat-label>
@@ -99,8 +96,6 @@
                     heure de début est obligatoire
                 </mat-error>
             </mat-form-field>
-
-
 
             <mat-form-field appearance="standard">
                 <mat-label>Heure de fin</mat-label>
@@ -111,28 +106,6 @@
             </mat-form-field>
 
         </div>
-
-
-
-        <!-- team_id form -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <button mat-stroked-button [disabled]="missionFormGroup.invalid" color="primary" type="submit"
             mat-dialog-close="">SAUVEGARDER LES
