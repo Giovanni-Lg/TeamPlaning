@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/team-planing-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

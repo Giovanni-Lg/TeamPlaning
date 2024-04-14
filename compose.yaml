@@ -9,4 +9,5 @@ services:
     ports:
       - 4200:4200
 
-    command: tail -f /dev/null #keep container running
+#keep container running in dev mode
+    # command: tail -f /dev/null 
