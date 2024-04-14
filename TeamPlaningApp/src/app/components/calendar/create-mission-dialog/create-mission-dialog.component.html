@@ -14,7 +14,7 @@
 
 
         <mat-form-field appearance="outline">
-            <mat-label>Membre</mat-label>
+            <mat-label>Membre de l'équipe</mat-label>
             <mat-select formControlName="teamMember">
                 <mat-option *ngFor="let member of teamMembers$ |async" [value]="member">
                     {{member.last_name}} {{member.first_name}}
@@ -22,7 +22,7 @@
             </mat-select>
 
             <mat-error *ngIf="missionFormGroup.teamMember?.invalid && missionFormGroup.teamMember?.touched">
-                Membre est obligatoire
+                Membre de l'équipe est obligatoire
             </mat-error>
         </mat-form-field>
 

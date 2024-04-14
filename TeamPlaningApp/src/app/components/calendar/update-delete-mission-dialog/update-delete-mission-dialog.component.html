@@ -20,7 +20,7 @@
 
 
         <mat-form-field appearance="standard">
-            <mat-label>Membre
+            <mat-label>Membre de l'équipe
                 <ng-container *ngIf="teamMember && !missionFormGroup.teamMember?.touched "> : {{teamMember.first_name}}
                     {{teamMember.last_name}}</ng-container>
             </mat-label>
@@ -31,7 +31,7 @@
             </mat-select>
 
             <mat-error *ngIf="missionFormGroup.teamMember?.invalid && missionFormGroup.teamMember?.touched">
-                Membre est obligatoire
+                Membre de l'équipe est obligatoire
             </mat-error>
         </mat-form-field>
 
