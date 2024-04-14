@@ -50,7 +50,7 @@ export class CreateMissionDialogComponent implements OnInit {
       title: mission.title,
       description: mission.description,
       start: startDate,
-      editable: true,
+      editable: false,
       end: endDate,
       allDay: mission.all_day,
       backgroundColor: mission.color,

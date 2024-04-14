@@ -17,7 +17,7 @@
             <mat-label>Membre</mat-label>
             <mat-select formControlName="teamMember">
                 <mat-option *ngFor="let member of teamMembers$ |async" [value]="member">
-                    {{member.last_name}} {{member.first_name}} 
+                    {{member.last_name}} {{member.first_name}}
                 </mat-option>
             </mat-select>
 
@@ -42,7 +42,7 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Description</mat-label>
-            <input matInput formControlName="description">
+            <textarea matInput formControlName="description"></textarea>
             <mat-error *ngIf="missionFormGroup.description?.invalid && missionFormGroup.description?.touched">
                 Description est obligatoire
             </mat-error>
