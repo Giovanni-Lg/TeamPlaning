@@ -1,6 +1,7 @@
 import { TeamMember } from "./team-member";
 
 export interface MissionEvent {
+    id:string ,
     title: string;
     description: string;
     start: string | Date;

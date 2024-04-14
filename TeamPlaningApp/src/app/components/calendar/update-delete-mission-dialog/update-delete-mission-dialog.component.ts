@@ -32,6 +32,7 @@ export class UpdateDeleteMissionDialogComponent implements OnInit {
   ngOnInit(): void {
 
     const selectedMissionCopy = {
+      id: this.selectedMission.id,
       start_date: this._dateService.formatDateTo_AAAA_MM_JJ(new Date(this.selectedMission.start_date)),
       end_date: this._dateService.formatDateTo_AAAA_MM_JJ(new Date(this.selectedMission.end_date)),
       all_day: this.selectedMission.all_day,
@@ -56,6 +57,7 @@ export class UpdateDeleteMissionDialogComponent implements OnInit {
 
     const newEvent =
     {
+      id: mission.id,
       title: mission.title,
       description: mission.description,
       start: startDate,
@@ -68,7 +70,7 @@ export class UpdateDeleteMissionDialogComponent implements OnInit {
     };
 
     let eventsStat = this._statService.event;
-    eventsStat = eventsStat?.filter((event) => event.teamMember.id !== this.selectedMission.teamMember.id);
+    eventsStat = eventsStat?.filter((event) => event.id !== this.selectedMission.id);
     eventsStat?.push(newEvent);
     this._statService.event = eventsStat;
 
@@ -81,10 +83,13 @@ export class UpdateDeleteMissionDialogComponent implements OnInit {
 
   onDeleteMission(): void {
     let eventsStat = this._statService.event;
-    eventsStat = eventsStat?.filter((event) => event.teamMember.id !== this.selectedMission.teamMember.id);
+    eventsStat = eventsStat?.filter((event) => event.id !== this.selectedMission.id);
     this._statService.event = eventsStat;
     this.calendarApi?.removeAllEvents();
     this.calendarApi?.addEventSource(eventsStat as EventSourceInput);
+    console.log('Changement :', this.selectedMission);
+
+
   }
 
 

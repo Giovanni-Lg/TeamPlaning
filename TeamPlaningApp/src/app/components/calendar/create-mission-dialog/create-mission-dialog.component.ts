@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DateSelectArg, EventSourceInput } from '@fullcalendar/core';
 import { MissionFormGroup } from 'src/app/form-group/mission-form';
+import { randomUID } from 'src/app/helper';
 import { Mission } from 'src/app/interfaces/mission';
 import { DateService } from 'src/app/services/date.service';
 import { HttpService } from 'src/app/services/http.service';
@@ -47,6 +48,7 @@ export class CreateMissionDialogComponent implements OnInit {
 
     const newEvent =
     {
+      id : randomUID(),
       title: mission.title,
       description: mission.description,
       start: startDate,

@@ -18,7 +18,7 @@ export class MissionFormGroup extends FormGroup {
 
             teamMember: new FormControl('', [Validators.required]),
 
-            color : new FormControl('', [Validators.required]),
+            color: new FormControl('', [Validators.required]),
         });
 
         // Patch values using provided data
@@ -62,4 +62,5 @@ export class MissionFormGroup extends FormGroup {
     public get color() {
         return this.get('color');
     }
+
 }

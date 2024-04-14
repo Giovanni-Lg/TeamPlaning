@@ -1,9 +1,10 @@
 import { TeamMember } from "./team-member"
 
 export interface Mission {
+    id:string,
     title: string
     description: string,
-    start_date: string ,
+    start_date: string,
     end_date: string,
     all_day: boolean,
     start_hour: string,

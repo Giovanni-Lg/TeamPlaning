@@ -88,9 +88,10 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   handleEventClick(arg: EventClickArg): void {
     const eventObj = arg.event;
-    const selectedTeamMember = eventObj.extendedProps['teamMember'];
+   
 
     const selectedMission: Mission = {
+      id : eventObj.id,
       title: eventObj.title,
       description: eventObj.extendedProps['description'],
       start_date: eventObj.startStr,
@@ -99,7 +100,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
       start_hour: eventObj.startStr,
       end_hour: eventObj.endStr,
       color: eventObj.backgroundColor,
-      teamMember: selectedTeamMember
+      teamMember: eventObj.extendedProps['teamMember']
     };
 
     this._dialog.open(UpdateDeleteMissionDialogComponent, {
