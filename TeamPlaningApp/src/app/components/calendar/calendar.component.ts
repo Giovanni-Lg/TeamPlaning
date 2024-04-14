@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import { Calendar, CalendarOptions, DateSelectArg, EventClickArg, EventHoveringArg, EventSourceInput } from '@fullcalendar/core';
@@ -9,18 +9,21 @@ import { HttpService } from 'src/app/services/http.service';
 import { MissionEvent } from 'src/app/interfaces/mission-event';
 import { Mission } from 'src/app/interfaces/mission';
 import { UpdateDeleteMissionDialogComponent } from './update-delete-mission-dialog/update-delete-mission-dialog.component';
+import { Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
-export class CalendarComponent implements OnInit, AfterViewInit {
+export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   calendarApi?: Calendar;
 
   events: EventSourceInput = [];
+
+  getMissionEventRessourceSubscription?: Subscription;
 
   calendarOptions: CalendarOptions = {
     ...CALENDAR_OPTIONS_CONFIG,
@@ -62,6 +65,10 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this.getMissionEventRessource();
   }
 
+  ngOnDestroy(): void {
+    this.getMissionEventRessourceSubscription?.unsubscribe();
+  }
+
   handleSelectDate(selectedDate: DateSelectArg): void {
     this._dialog.open(CreateMissionDialogComponent, {
       data: selectedDate,
@@ -71,7 +78,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   getMissionEventRessource(): void {
-    this._httpService.getMissionEventMockData().subscribe({
+    this.getMissionEventRessourceSubscription = this._httpService.getMissionEventMockData().subscribe({
       next: (missionEvents) => {
         this.events = missionEvents as EventSourceInput;
         this.calendarApi?.addEventSource(this.events);
