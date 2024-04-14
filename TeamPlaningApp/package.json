@@ -1,6 +1,7 @@
 {
   "name": "team-planing-app",
   "version": "0.0.0",
+  "author": "Giovanni",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
