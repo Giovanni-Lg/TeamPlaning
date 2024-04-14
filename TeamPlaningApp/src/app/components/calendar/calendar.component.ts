@@ -73,7 +73,6 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
     this._dialog.open(CreateMissionDialogComponent, {
       data: selectedDate,
       maxWidth: "95vw",
-
     });
   }
 

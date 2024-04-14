@@ -15,14 +15,14 @@ import { StateService } from 'src/app/services/state.service';
 export class CreateMissionDialogComponent implements OnInit {
 
   missionFormGroup = new MissionFormGroup();
-  calendarApi = this._statService.calendarApi;
+  calendarApi = this._stateService.calendarApi;
   teamMembers$ = this._httpService.getTeamMockData();
 
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public selectedDate: DateSelectArg,
     private _dateService: DateService,
-    private _statService: StateService,
+    private _stateService: StateService,
     private _httpService: HttpService
   ) { }
 
@@ -58,11 +58,10 @@ export class CreateMissionDialogComponent implements OnInit {
       teamMember: mission.teamMember
     };
 
-    const eventsStat = this._statService.event;
-    eventsStat?.push(newEvent)
+    this._stateService.event?.push(newEvent)
 
     this.calendarApi?.removeAllEvents();
-    this.calendarApi?.addEventSource(eventsStat as EventSourceInput);
+    this.calendarApi?.addEventSource(this._stateService.event as EventSourceInput);
 
     console.log('Changement :', newEvent);
 
